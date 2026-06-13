@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ARGSERVER CHECKOUT</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- background bonito uwu -->
+  <video autoplay muted loop id="bgVideo">
+    <source src="assets/background.mp4" type="video/mp4">
+  </video>
+
+  <div class="container">
+    <div class="card" id="card">
+
+<!-- banner de recarga -->
+  <div id="recargaBanner" class="banner">
+    Código de recarga: <span id="recargaCode"></span>
+  </div>
+
+  <div id="recargaMissing" class="banner hidden">
+    No se encontró ningún código de recarga ⚠️
+  </div>
+
+      <!-- selección -->
+      <div class="panel active" id="panelMetodo">
+        <h2>Selecciona el método de pago</h2>
+        <button onclick="selectMethod('binance')">Binance</button>
+        <button onclick="selectMethod('transferencia')">Transferencia bancaria</button>
+      </div>
+
+      <!-- datos -->
+      <div class="panel" id="panelDatos">
+        <h1>Datos del pago</h1>
+        <div id="datosMetodo"></div>
+        
+        <button onclick="goToComprobante()">Continuar</button>
+      </div>
+
+      <!-- formulario -->
+      <div class="panel" id="panelComprobante">
+        <h1>Enviar comprobante</h1>
+        <form id="comprobanteForm">
+          <input type="text" id="nombre" placeholder="Nombre" required>
+          <input type="email" id="correo" placeholder="Correo electrónico" required>
+          <input type="number" id="montoFinal" required>
+          <input type="file" id="screenshot" accept="image/*" required>
+          <button type="submit">Enviar</button>
+        </form>
+      </div>
+
+      <!-- mensaje y redirect -->
+      <div class="panel success-panel" id="panelFinal">
+        <div class="success-icon">✅</div>
+        <h1>Comprobante enviado con éxito</h1>
+        <p>La acreditación puede demorar hasta 5-10 minutos</p>
+        <p id="countdownText">Serás redirigido en... (20 segundos)</p>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="scripts.js"></script>
+</body>
+</html>
+
